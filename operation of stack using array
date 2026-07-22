@@ -1,0 +1,64 @@
+class Stack:
+    def __init__(self, size):
+        self.stack = []
+        self.size = size
+
+    def push(self, value):
+        if len(self.stack) == self.size:
+            print("Stack Overflow")
+        else:
+            self.stack.append(value)
+            print(value, "pushed into stack")
+
+    def pop(self):
+        if len(self.stack) == 0:
+            print("Stack Underflow")
+        else:
+            print(self.stack.pop(), "popped from stack")
+
+    def peek(self):
+        if len(self.stack) == 0:
+            print("Stack is empty")
+        else:
+            print("Top element is:", self.stack[-1])
+
+    def display(self):
+        if len(self.stack) == 0:
+            print("Stack is empty")
+        else:
+            print("Stack elements (top to bottom):")
+            for i in range(len(self.stack) - 1, -1, -1):
+                print(self.stack[i])
+
+
+size = (input("Enter the stack size: "))
+s = Stack(size)
+
+while True:
+    print("\nSTACK OPERATIONS")
+    print("1. Push")
+    print("2. Pop")
+    print("3. Peek")
+
+    choice = int(input("Enter your choice: "))
+
+    if choice == 1:
+        value = (input("Enter the value to push: "))
+        s.push(value)
+
+    elif choice == 2:
+        s.pop()
+
+    elif choice == 3:
+        s.peek()
+
+    elif choice == 4:
+        s.display()
+
+    elif choice == 5:
+        print("Exiting...")
+        break
+
+    else:
+        print("Invalid choice!")
+
