@@ -1,0 +1,22 @@
+n = int(input("Enter number of users: "))
+connections = eval(input("Enter connections: "))
+matrix = [[0] * n for _ in range(n)]
+for u, v in connections:
+    matrix[u][v] = 1
+    matrix[v][u] = 1      
+print("\nAdjacency Matrix:")
+for row in matrix:
+    print(row)
+adj_list = [[] for _ in range(n)]
+for u, v in connections:
+    adj_list[u].append(v)
+    adj_list[v].append(u)
+print("\nAdjacency List:")
+for i in range(n):
+    print(i, ":", adj_list[i])
+u = int(input("\nEnter first user: "))
+v = int(input("Enter second user: "))
+if matrix[u][v] == 1:
+    print("Users are directly connected")
+else:
+    print("Users are not directly connected")
